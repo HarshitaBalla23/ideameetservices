@@ -1,5 +1,7 @@
 package univ.uwin.proj.idm.app.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,9 +23,9 @@ public class IdeaMeetController {
 
 	@CrossOrigin
 	@GetMapping()
-	public ResponseEntity<String> getAllIdeas(){
+	public ResponseEntity<List<String>> getAllIdeas(){
 		System.out.println("I am hithttp://localhost:8080/idea");
-		return new ResponseEntity<String>("All Ideas", HttpStatus.OK);
+		return new ResponseEntity<List<String>>(service.getAllIdeas(), HttpStatus.OK);
 	}
 	
 	@CrossOrigin

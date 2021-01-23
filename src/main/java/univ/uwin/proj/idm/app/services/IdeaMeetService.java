@@ -1,5 +1,8 @@
 package univ.uwin.proj.idm.app.services;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +23,12 @@ public class IdeaMeetService {
 			status =  "sucess";
 		}
 		return status;
+	}
+	
+	
+	public List<String> getAllIdeas(){
+		List<AppIdea> listOfIdeas = repository.findAll();
+		return listOfIdeas.stream().map(a-> a.getIdeaName()).collect(Collectors.toList());
 	}
 
 }
